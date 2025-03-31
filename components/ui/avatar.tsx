@@ -5,7 +5,6 @@ import React from "react";
 import GradientBg from "../general/gradient-bg";
 
 const Avatar = ({
-    className,
     url = "https://avatars.githubusercontent.com/u/88265699?v=4",
 }: IAvatar) => {
     return (

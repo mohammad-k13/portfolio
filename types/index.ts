@@ -1,7 +1,7 @@
 import { type Icon } from "iconsax-react";
 import { type ReactNode, type JSX } from "react";
 
-interface IIcon {
+export interface IIcon {
     width?: number;
     height?: number;
     alt?: string;
