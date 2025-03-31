@@ -2,9 +2,11 @@
 
 :root {
     --background: #ffffff;
-    --foreground: #171717;
+    --foreground: #101111;
     --light-apricot: #ffd49c;
     --light-cobalt-blue: #7a87fb;
+    --navlinks-background: #1C1C1C;
+    --navlink-hover-background: #292929;
 }
 
 @theme inline {
@@ -12,13 +14,15 @@
     --color-foreground: var(--foreground);
     --color-light-apricot: #ffd49c;
     --color-light-cobalt-blue: #7a87fb;
+    --color-navlinks-background: #1C1C1C;
+    --color-navlink-hover-background: #292929;
     --font-sans: var(--font-geist-sans);
     --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --background: #0a0a0a;
+        --background: #101111;
         --foreground: #ededed;
         --light-apricot: #ffd49c;
         --light-cobalt-blue: #7a87fb;
