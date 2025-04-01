@@ -1,32 +1,42 @@
 "use client";
 import { navLinks } from "@/constant";
-import React from "react";
+import React, { useRef, useState } from "react";
 import useNavlinks from "@/stores/navlinks";
 import { twMerge } from "tailwind-merge";
+import { motion } from "framer-motion";
+import NavigationCursor from "./navigation-cursor";
+import { INavigationCursorPosition } from "@/types";
+import NavLink from "./navlink";
 
 const Navigation = () => {
-    const { activeNavlink, setActiveNavlink } = useNavlinks();
+    const [navigationCursorPosition, setNavigationCursorPosition] =
+        useState<INavigationCursorPosition>({
+            width: 150,
+            left: 50,
+            opacity: 0,
+        });
 
     return (
         <div className="h-14 w-full max-w-[400px] rounded-full !bg-linear-to-l from-light-cobalt-blue to-light-apricot overflow-hidden flex items-center justify-center">
-            <div className="w-[99%] h-[96%] grid grid-cols-4 grid-flow-col gap-4 bg-navlinks-background py-[.3rem] px-[.40rem] rounded-full">
-                {navLinks.map(({ icon: Icon, label, value }, index) => (
-                    <div
+            <ul
+                className="relative w-[99%] h-[96%] grid grid-cols-4 grid-flow-col gap-4 bg-navlinks-background py-[.3rem] px-[.40rem] rounded-full"
+                onMouseEnter={() => {
+                    setNavigationCursorPosition((pv) => ({ ...pv, opacity: 1 }));
+                }}
+                onMouseLeave={() => {
+                    setNavigationCursorPosition((pv) => ({ ...pv, opacity: 0 }));
+                }}
+            >
+                <NavigationCursor position={navigationCursorPosition} />
+
+                {navLinks.map((navItem, index) => (
+                    <NavLink
                         key={index}
-                        className={twMerge(
-                            activeNavlink === value && "bg-navlink-hover-background",
-                            "h-full px-3 rounded-full text-lg flex items-center justify-center cursor-pointer col-span-1"
-                        )}
-                        onClick={() => setActiveNavlink(value)}
-                    >
-                        {activeNavlink === value ? (
-                            <Icon variant="Broken" color="#ffff" size={20} />
-                        ) : (
-                            <p>{label}</p>
-                        )}
-                    </div>
+                        data={navItem}
+                        setNavigationCursorPosition={setNavigationCursorPosition}
+                    />
                 ))}
-            </div>
+            </ul>
         </div>
     );
 };

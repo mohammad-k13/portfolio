@@ -24,3 +24,9 @@ export interface INavLink {
     value: Pages,
     label: string
 }
+
+export interface INavigationCursorPosition {
+    width: number,
+    left: number,
+    opacity: number;
+}
