@@ -23,7 +23,7 @@ export default function RootLayout({
         <html lang="en">
             <body
                 cz-shortcut-listen="true"
-                className={`${poppins.variable} antialiased max-w-[1920px] mx-auto px-5`}
+                className={`${poppins.variable} antialiased max-w-[1920px] mx-auto px-5 min-h-screen`}
             >
                 <Header />
                 {children}
