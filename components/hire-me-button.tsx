@@ -5,7 +5,7 @@ import Button from './ui/button'
 const HireMeButton = () => {
   return (
     <div className='flex items-center gap-2 text-background'>
-      <Button>Hire Me</Button>
+      <Button className='scale-110'>Hire Me</Button>
       <Avatar />
     </div>
   )
